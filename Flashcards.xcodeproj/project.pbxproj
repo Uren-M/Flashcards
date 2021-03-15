@@ -15,6 +15,7 @@
 		C171DD5E25EA1EA900A52DE0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C171DD5C25EA1EA900A52DE0 /* LaunchScreen.storyboard */; };
 		C171DD6925EA1EA900A52DE0 /* FlashcardsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C171DD6825EA1EA900A52DE0 /* FlashcardsTests.swift */; };
 		C171DD7425EA1EA900A52DE0 /* FlashcardsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C171DD7325EA1EA900A52DE0 /* FlashcardsUITests.swift */; };
+		C1A13DEE25F4148C00989D27 /* CreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A13DED25F4148C00989D27 /* CreationViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		C171DD6F25EA1EA900A52DE0 /* FlashcardsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlashcardsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C171DD7325EA1EA900A52DE0 /* FlashcardsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashcardsUITests.swift; sourceTree = "<group>"; };
 		C171DD7525EA1EA900A52DE0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C1A13DED25F4148C00989D27 /* CreationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,8 +103,9 @@
 			children = (
 				C171DD5125EA1EA700A52DE0 /* AppDelegate.swift */,
 				C171DD5325EA1EA700A52DE0 /* SceneDelegate.swift */,
-				C171DD5525EA1EA700A52DE0 /* ViewController.swift */,
 				C171DD5725EA1EA700A52DE0 /* Main.storyboard */,
+				C171DD5525EA1EA700A52DE0 /* ViewController.swift */,
+				C1A13DED25F4148C00989D27 /* CreationViewController.swift */,
 				C171DD5A25EA1EA900A52DE0 /* Assets.xcassets */,
 				C171DD5C25EA1EA900A52DE0 /* LaunchScreen.storyboard */,
 				C171DD5F25EA1EA900A52DE0 /* Info.plist */,
@@ -261,6 +264,7 @@
 				C171DD5625EA1EA700A52DE0 /* ViewController.swift in Sources */,
 				C171DD5225EA1EA700A52DE0 /* AppDelegate.swift in Sources */,
 				C171DD5425EA1EA700A52DE0 /* SceneDelegate.swift in Sources */,
+				C1A13DEE25F4148C00989D27 /* CreationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
