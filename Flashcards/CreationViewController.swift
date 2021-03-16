@@ -15,6 +15,8 @@ class CreationViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        questionTextField.text = initialQuestion
+        answerTextField.text = initialAnswer
     }
     
     @IBAction func didTapOnCancel(_ sender: Any) {
@@ -27,13 +29,30 @@ class CreationViewController: UIViewController {
         
         let answerText = answerTextField.text
         
-        flashcardsController.updateFlashcard(question: questionText!, answer: answerText!)
-        dismiss(animated: true)
+        let extraTextOne = extraAnswerOne.text
+        
+        let extraTextTwo = extraAnswerTwo.text
+        
+        if (questionText == nil || answerText == nil || questionText!.isEmpty || answerText!.isEmpty){
+            let alert = UIAlertController(title: "Missing Text", message: "You need both a question and an answer", preferredStyle: .alert)
+            present(alert, animated: true)
+            let okAction = UIAlertAction(title: "OK", style: .default)
+            alert.addAction(okAction)
+        } else {
+            flashcardsController.updateFlashcard(question: questionText!, answer: answerText!, extraOne: extraTextOne, extraTwo: extraTextTwo)
+            dismiss(animated: true)
+        }
+        
+        
         
     }
     
     @IBOutlet weak var questionTextField: UITextField!
     @IBOutlet weak var answerTextField: UITextField!
+    @IBOutlet weak var extraAnswerOne: UITextField!
+    @IBOutlet weak var extraAnswerTwo: UITextField!
+    var initialQuestion: String?
+    var initialAnswer: String?
     /*
     // MARK: - Navigation
 
