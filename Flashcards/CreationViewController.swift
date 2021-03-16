@@ -31,6 +31,7 @@ class CreationViewController: UIViewController {
         dismiss(animated: true)
         
     }
+    
     @IBOutlet weak var questionTextField: UITextField!
     @IBOutlet weak var answerTextField: UITextField!
     /*

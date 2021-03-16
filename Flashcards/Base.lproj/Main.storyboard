@@ -83,9 +83,6 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="didTapOnDone:" destination="njz-aF-BjM" eventType="editingDidEnd" id="ZtI-5E-8We"/>
-                                </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Answer" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="U6r-TZ-azX">
                                 <rect key="frame" x="47" y="307" width="335" height="34"/>
@@ -111,7 +108,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="answerTextField" destination="U6r-TZ-azX" id="efs-1b-Pa4"/>
-                        <outlet property="questionTextField" destination="U6r-TZ-azX" id="fX1-Qv-fCj"/>
+                        <outlet property="questionTextField" destination="nsm-XT-kQ6" id="K6A-jn-FnD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x3a-8g-1oD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
