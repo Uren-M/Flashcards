@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V8J-Cf-eoN">
-                                <rect key="frame" x="196.66666666666666" y="769" width="35" height="71"/>
+                                <rect key="frame" x="196.66666666666666" y="791" width="35" height="71"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="56"/>
                                 <state key="normal" title="+"/>
                                 <connections>
@@ -132,21 +132,37 @@
                                     <outletCollection property="gestureRecognizers" destination="RiS-Tw-juY" appends="YES" id="yfy-tw-67z"/>
                                 </connections>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E2W-hS-KZe">
+                                <rect key="frame" x="52" y="811" width="31" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Prev"/>
+                                <connections>
+                                    <action selector="didTapOnPrev:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9st-Ry-J0m"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C9m-2V-YGB">
+                                <rect key="frame" x="352" y="811" width="32" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Next"/>
+                                <connections>
+                                    <action selector="didTapOnNext:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xNy-Ev-IdC"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="V8J-Cf-eoN" secondAttribute="bottom" constant="30" id="2Qj-i1-AAl"/>
                             <constraint firstItem="9wU-yN-pVY" firstAttribute="top" secondItem="q8C-bX-vO2" secondAttribute="bottom" constant="55" id="4ZQ-BZ-ek6"/>
                             <constraint firstItem="q8C-bX-vO2" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="100" id="BZu-O7-eVc"/>
                             <constraint firstItem="9wU-yN-pVY" firstAttribute="centerX" secondItem="V8J-Cf-eoN" secondAttribute="centerX" id="CmQ-w7-vyW"/>
                             <constraint firstItem="q8C-bX-vO2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="44" id="J3X-um-cdH"/>
+                            <constraint firstItem="V8J-Cf-eoN" firstAttribute="top" secondItem="9wU-yN-pVY" secondAttribute="bottom" constant="52" id="JEE-Tp-6gg"/>
                             <constraint firstAttribute="bottom" secondItem="9wU-yN-pVY" secondAttribute="bottom" constant="187" id="NlT-SC-rDb"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="q8C-bX-vO2" secondAttribute="trailing" constant="44" id="V8C-YD-vRj"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="V8J-Cf-eoN" secondAttribute="bottom" constant="52" id="YJI-aN-aRd"/>
                             <constraint firstItem="q8C-bX-vO2" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="100" id="ZUn-fM-BQL"/>
                             <constraint firstItem="9wU-yN-pVY" firstAttribute="leading" secondItem="q8C-bX-vO2" secondAttribute="leading" id="fyx-So-ooR"/>
                             <constraint firstItem="9wU-yN-pVY" firstAttribute="trailing" secondItem="q8C-bX-vO2" secondAttribute="trailing" id="hr4-DD-Lhx"/>
-                            <constraint firstItem="V8J-Cf-eoN" firstAttribute="top" secondItem="9wU-yN-pVY" secondAttribute="bottom" constant="30" id="zRt-W8-3T3"/>
                         </constraints>
                     </view>
                     <connections>
@@ -156,6 +172,8 @@
                         <outlet property="btnOptionTwo" destination="6bc-qA-wa1" id="7cs-dx-Xh7"/>
                         <outlet property="card" destination="q8C-bX-vO2" id="wZK-ui-sfU"/>
                         <outlet property="frontLabel" destination="BqQ-LH-RRW" id="HIy-rk-ObO"/>
+                        <outlet property="nextButton" destination="C9m-2V-YGB" id="slh-TE-BKB"/>
+                        <outlet property="prevButton" destination="E2W-hS-KZe" id="eGs-7o-4bs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

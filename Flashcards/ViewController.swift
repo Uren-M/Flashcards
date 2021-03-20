@@ -7,20 +7,37 @@
 
 import UIKit
 
+//Create a struct. A struct is a way to define a type of object, and allows us to group properties and functions
+
+struct Flashcard {
+    var question: String
+    var answer: String
+    var extraOne: String
+    var extraTwo: String
+}
+
 class ViewController: UIViewController {
 
     @IBOutlet weak var frontLabel: UILabel!
     @IBOutlet weak var backLabel: UILabel!
     @IBOutlet weak var card: UIView!
     
-    
     @IBOutlet weak var btnOptionOne: UIButton!
     @IBOutlet weak var btnOptionTwo: UIButton!
     @IBOutlet weak var btnOptionThree: UIButton!
     
     
+    @IBOutlet weak var prevButton: UIButton!
+    @IBOutlet weak var nextButton: UIButton!
+    
+    //create an array flashcards
+    var flashcards = [Flashcard]()
+    //create index counter
+    var currentIndex = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        // Do any additional setup after loading the view.
         card.layer.cornerRadius = 20.0
         card.layer.shadowRadius = 15.0
         card.layer.shadowOpacity = 0.2
@@ -37,7 +54,16 @@ class ViewController: UIViewController {
         btnOptionThree.layer.borderWidth = 3.0
         btnOptionThree.layer.borderColor = #colorLiteral(red: 0.2184618115, green: 0.9229496919, blue: 0.9385696883, alpha: 1)
         btnOptionThree.layer.cornerRadius = 10.0
-        // Do any additional setup after loading the view.
+        
+        //Read saved flashcards
+        readSavedFlashcards()
+        
+        if flashcards.count == 0 {
+            updateFlashcard(question: "What's the capital of Brazil?", answer: "Brasilia", extraOne: "Hong Kong", extraTwo: "Lagos")
+        } else {
+            updateLabels()
+            updateNextPrevButtons()
+        }
     }
 
     @IBAction func didTapOnFlashcard(_ sender: Any) {
@@ -64,13 +90,82 @@ class ViewController: UIViewController {
         btnOptionThree.isHidden = true
     }
     
+    @IBAction func didTapOnPrev(_ sender: Any) {
+        currentIndex = currentIndex - 1
+        updateLabels()
+        updateNextPrevButtons()
+    }
     
-    func updateFlashcard(question: String, answer: String, extraOne: String?, extraTwo: String?){
-        frontLabel.text = question
-        backLabel.text = answer
-        btnOptionOne.setTitle(extraOne, for: .normal)
-        btnOptionTwo.setTitle(answer, for: .normal)
-        btnOptionThree.setTitle(extraTwo, for: .normal)
+    @IBAction func didTapOnNext(_ sender: Any) {
+        currentIndex = currentIndex + 1
+        updateLabels()
+        updateNextPrevButtons()
+    }
+    
+    //function to update flashcards
+    
+    func updateFlashcard(question: String, answer: String, extraOne: String, extraTwo: String){
+        let flashcard = Flashcard(question: question, answer: answer, extraOne: extraOne, extraTwo: extraTwo)
+        
+        //adding flashcards to the flashcard array
+        flashcards.append(flashcard)
+        
+        //logging on console
+        print("😎 added flashcard")
+        currentIndex = flashcards.count - 1
+        print("😎 We now have \(currentIndex) flashcards")
+        
+        //update nav button function
+        updateNextPrevButtons()
+        
+        //update labels
+        updateLabels()
+    }
+    
+    //create update nav button function
+    
+    func updateNextPrevButtons(){
+        //disable button if at end
+        if (currentIndex == flashcards.count - 1){
+            nextButton.isEnabled = false
+        } else {
+            nextButton.isEnabled = true
+        }
+        if (currentIndex == 0){
+            prevButton.isEnabled = false
+        } else {
+            prevButton.isEnabled = true
+        }
+    }
+    
+    func updateLabels(){
+        let currentFlashcard = flashcards[currentIndex]
+        frontLabel.text = currentFlashcard.question
+        backLabel.text = currentFlashcard.answer
+        btnOptionOne.setTitle(currentFlashcard.extraOne, for: .normal)
+        btnOptionTwo.setTitle(currentFlashcard.answer, for: .normal)
+        btnOptionThree.setTitle(currentFlashcard.extraTwo, for: .normal)
+        
+    }
+    
+    //function to save flashcards locally on disk
+    func saveAllFlashcardsToDisk(){
+        UserDefaults.standard.set(flashcards, forKey: "flashcards")
+        //convert from flashcards array to dictionary array
+        let dictionaryArray = flashcards.map { (card) -> [String: String] in
+            return ["question": card.question, "answer": card.answer, "extraOne": card.extraOne, "extraTwo": card.extraTwo]
+        }
+        
+        print("🎉 Flashcards saved to UserDefaults")
+    }
+    
+    func readSavedFlashcards(){
+        if let dictionaryArray = UserDefaults.standard.array(forKey: "flashcards") as? [[String: String]]{
+            let savedCards = dictionaryArray.map { (dictionary) -> Flashcard in return Flashcard(question: dictionary["question"]!, answer: dictionary["answer"]!, extraOne: dictionary["extraOne"]!, extraTwo: dictionary["extraTwo"]!)
+            }
+            
+            flashcards.append(contentsOf: savedCards)
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

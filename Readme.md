@@ -1,4 +1,24 @@
 ## FLASHCARDS
+📝 `NOTE` Paste this template at the top of your existing `README.md` file from the last lab.
+
+## Lab 3
+
+### App Description
+`TODO://` Set of flashcards, option to browse through, saving data to disk, and reading from disk
+
+### App Walk-though
+
+<img src="Flashcards3.gif" width=200><br>
+
+## Required
+- x ] User can browse through multiple flashcards
+- [x] User can re-open the app and see previously created flashcards
+- [x] Push code to GitHub
+## Optional
+- [ ] User can delete a flashcard
+- [x] User can edit existing flashcard
+- [x] User can store multiple choice questions
+
 ## Lab 2
 
 ### App Description
@@ -17,6 +37,7 @@
 - [x] User gets an error if they try to create a new flashcard with no question or answer
 - [x] User can edit existing flashcard
 - [x] User can add multiple choice answers in the creation screen
+
 ## Lab 1
 
 ### App Description
