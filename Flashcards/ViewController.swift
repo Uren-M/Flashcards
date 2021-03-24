@@ -59,7 +59,7 @@ class ViewController: UIViewController {
         readSavedFlashcards()
         
         if flashcards.count == 0 {
-            updateFlashcard(question: "What's the capital of Brazil?", answer: "Brasilia", extraOne: "Hong Kong", extraTwo: "Lagos")
+            updateFlashcard(question: "What's the capital of Brazil?", answer: "Brasilia", extraOne: "Hong Kong", extraTwo: "Lagos", isExisting: true)
         } else {
             updateLabels()
             updateNextPrevButtons()
@@ -101,25 +101,63 @@ class ViewController: UIViewController {
         updateLabels()
         updateNextPrevButtons()
     }
+    @IBAction func didTapOnDelete(_ sender: Any) {
+        let alert = UIAlertController(title: "Delete flashcard", message: "Are you sure you want to delete it?", preferredStyle: .actionSheet)
+        present(alert, animated: true)
+        
+        let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { action in
+            self.deleteCurrentFlashcard()
+        }
+        alert.addAction(deleteAction)
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        alert.addAction(cancelAction)
+
+    }
+    
+    func deleteCurrentFlashcard(){
+        
+        //SPECIAL CASE: When the last index is deleted
+        if currentIndex > 0 || flashcards.count != 1 {
+            flashcards.remove(at: currentIndex)
+            currentIndex = flashcards.count - 1
+            
+            updateLabels()
+            updateNextPrevButtons()
+            saveAllFlashcardsToDisk()
+        } else {
+            //show alert message if user tries to delete last flashcard left
+            let notify = UIAlertController(title: "Caution⚠️", message: "You cannot delete the last flashcard left", preferredStyle: .alert)
+            present(notify, animated: true)
+            let dismiss = UIAlertAction(title: "Dismiss", style: .default)
+            notify.addAction(dismiss)
+        }
+    }
     
     //function to update flashcards
     
-    func updateFlashcard(question: String, answer: String, extraOne: String, extraTwo: String){
+    func updateFlashcard(question: String, answer: String, extraOne: String, extraTwo: String, isExisting: Bool){
         let flashcard = Flashcard(question: question, answer: answer, extraOne: extraOne, extraTwo: extraTwo)
         
-        //adding flashcards to the flashcard array
-        flashcards.append(flashcard)
+        //check if the flashcard already exists and is only being edited
+        if isExisting{
+            flashcards[currentIndex] = flashcard
+        } else {
+            //adding new flashcard to flashcard array/dictionary
+            flashcards.append(flashcard)
         
-        //logging on console
-        print("😎 added flashcard")
-        currentIndex = flashcards.count - 1
-        print("😎 We now have \(currentIndex) flashcards")
+            //logging on console
+            print("😎 added flashcard")
+            currentIndex = flashcards.count - 1
+            print("😎 We now have \(currentIndex) flashcards")
+        }
         
         //update nav button function
         updateNextPrevButtons()
         
         //update labels
         updateLabels()
+        saveAllFlashcardsToDisk()
     }
     
     //create update nav button function
@@ -150,12 +188,12 @@ class ViewController: UIViewController {
     
     //function to save flashcards locally on disk
     func saveAllFlashcardsToDisk(){
-        UserDefaults.standard.set(flashcards, forKey: "flashcards")
         //convert from flashcards array to dictionary array
         let dictionaryArray = flashcards.map { (card) -> [String: String] in
             return ["question": card.question, "answer": card.answer, "extraOne": card.extraOne, "extraTwo": card.extraTwo]
         }
-        
+    
+        UserDefaults.standard.set(dictionaryArray, forKey: "flashcards")
         print("🎉 Flashcards saved to UserDefaults")
     }
     

@@ -119,6 +119,15 @@
                                             <segue destination="VzK-tJ-nK0" kind="show" identifier="EditSegue" id="8yo-YI-9Ig"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cE3-Jp-EC4">
+                                        <rect key="frame" x="8" y="8" width="53" height="47"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="33"/>
+                                        <state key="normal" title="❌"/>
+                                        <connections>
+                                            <action selector="didTapOnDelete:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5i2-Q0-dXR"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <gestureRecognizers/>
@@ -193,42 +202,86 @@
                         <rect key="frame" x="0.0" y="0.0" width="428" height="872"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Question" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nsm-XT-kQ6">
-                                <rect key="frame" x="47" y="220" width="335" height="34"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Question" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nsm-XT-kQ6">
+                                <rect key="frame" x="46.666666666666657" y="220" width="335" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Answer" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="U6r-TZ-azX">
-                                <rect key="frame" x="47" y="307" width="335" height="34"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Answer" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="U6r-TZ-azX">
+                                <rect key="frame" x="46.666666666666657" y="332" width="335" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Extra answer #1" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Z2o-9f-ARi">
-                                <rect key="frame" x="47" y="394" width="335" height="34"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Extra answer #1" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Z2o-9f-ARi">
+                                <rect key="frame" x="46.666666666666657" y="451" width="335" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Extra answer #2" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0am-Js-gOr">
-                                <rect key="frame" x="50" y="481" width="329" height="34"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Extra answer #2" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0am-Js-gOr">
+                                <rect key="frame" x="46.666666666666657" y="568" width="335" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Question" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Zdg-I0-Ecm">
+                                <rect key="frame" x="46.666666666666657" y="178" width="335" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="8tc-Ul-0YZ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="TimesNewRomanPS-BoldMT" family="Times New Roman" pointSize="17"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Answer:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="E2E-bZ-rYH">
+                                <rect key="frame" x="46.666666666666657" y="290" width="335" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="71c-2r-TlX"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="TimesNewRomanPS-BoldMT" family="Times New Roman" pointSize="17"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Extra Option 1:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="L0T-0V-B3i">
+                                <rect key="frame" x="46.666666666666657" y="409" width="335" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="PGd-3r-xCC"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="TimesNewRomanPS-BoldMT" family="Times New Roman" pointSize="17"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Extra Option 2:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QMF-a7-3n8">
+                                <rect key="frame" x="46.666666666666657" y="526" width="335" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="Zdb-CQ-UPq"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="TimesNewRomanPS-BoldMT" family="Times New Roman" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="X3q-HY-TuU"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="0am-Js-gOr" firstAttribute="leading" secondItem="X3q-HY-TuU" secondAttribute="leading" constant="50" id="7ZZ-6R-97E"/>
-                            <constraint firstItem="0am-Js-gOr" firstAttribute="top" secondItem="Z2o-9f-ARi" secondAttribute="bottom" constant="53" id="AxH-1j-MWe"/>
-                            <constraint firstItem="nsm-XT-kQ6" firstAttribute="centerX" secondItem="5m5-Ww-Bue" secondAttribute="centerX" id="HWb-Vk-Jil"/>
-                            <constraint firstItem="nsm-XT-kQ6" firstAttribute="leading" secondItem="U6r-TZ-azX" secondAttribute="leading" id="Lnv-C6-tL9"/>
-                            <constraint firstItem="nsm-XT-kQ6" firstAttribute="trailing" secondItem="U6r-TZ-azX" secondAttribute="trailing" id="Ypk-LP-hq4"/>
-                            <constraint firstItem="U6r-TZ-azX" firstAttribute="trailing" secondItem="Z2o-9f-ARi" secondAttribute="trailing" id="eYS-tC-wj7"/>
-                            <constraint firstItem="nsm-XT-kQ6" firstAttribute="top" secondItem="X3q-HY-TuU" secondAttribute="top" constant="164" id="nfx-iT-zwu"/>
-                            <constraint firstItem="U6r-TZ-azX" firstAttribute="leading" secondItem="Z2o-9f-ARi" secondAttribute="leading" id="ow1-ba-v9C"/>
-                            <constraint firstItem="nsm-XT-kQ6" firstAttribute="leading" secondItem="X3q-HY-TuU" secondAttribute="leading" constant="47" id="pky-wU-xMK"/>
-                            <constraint firstItem="Z2o-9f-ARi" firstAttribute="centerX" secondItem="0am-Js-gOr" secondAttribute="centerX" id="tqe-Lx-R7s"/>
-                            <constraint firstItem="Z2o-9f-ARi" firstAttribute="top" secondItem="U6r-TZ-azX" secondAttribute="bottom" constant="53" id="xGP-Bd-siX"/>
-                            <constraint firstItem="U6r-TZ-azX" firstAttribute="top" secondItem="nsm-XT-kQ6" secondAttribute="bottom" constant="53" id="zjL-0P-nUm"/>
+                            <constraint firstItem="Zdg-I0-Ecm" firstAttribute="leading" secondItem="nsm-XT-kQ6" secondAttribute="leading" id="3Jg-YO-tef"/>
+                            <constraint firstItem="U6r-TZ-azX" firstAttribute="leading" secondItem="L0T-0V-B3i" secondAttribute="leading" id="3Zh-Ky-rNc"/>
+                            <constraint firstItem="U6r-TZ-azX" firstAttribute="top" secondItem="E2E-bZ-rYH" secondAttribute="bottom" constant="8" symbolic="YES" id="6DN-6x-W3e"/>
+                            <constraint firstItem="L0T-0V-B3i" firstAttribute="centerX" secondItem="Z2o-9f-ARi" secondAttribute="centerX" id="80D-bZ-iKy"/>
+                            <constraint firstItem="L0T-0V-B3i" firstAttribute="leading" secondItem="Z2o-9f-ARi" secondAttribute="leading" id="D08-UD-bRn"/>
+                            <constraint firstItem="L0T-0V-B3i" firstAttribute="top" secondItem="U6r-TZ-azX" secondAttribute="bottom" constant="43" id="KRb-fX-jAj"/>
+                            <constraint firstItem="Z2o-9f-ARi" firstAttribute="top" secondItem="L0T-0V-B3i" secondAttribute="bottom" constant="8" symbolic="YES" id="ODO-7Z-NVR"/>
+                            <constraint firstItem="Z2o-9f-ARi" firstAttribute="centerX" secondItem="QMF-a7-3n8" secondAttribute="centerX" id="PPw-i3-f4l"/>
+                            <constraint firstItem="QMF-a7-3n8" firstAttribute="top" secondItem="Z2o-9f-ARi" secondAttribute="bottom" constant="41" id="XO5-Q5-e26"/>
+                            <constraint firstItem="QMF-a7-3n8" firstAttribute="leading" secondItem="0am-Js-gOr" secondAttribute="leading" id="Y3q-l5-wMM"/>
+                            <constraint firstItem="Zdg-I0-Ecm" firstAttribute="centerX" secondItem="nsm-XT-kQ6" secondAttribute="centerX" id="YYB-ey-bzq"/>
+                            <constraint firstItem="Zdg-I0-Ecm" firstAttribute="centerX" secondItem="5m5-Ww-Bue" secondAttribute="centerX" id="dBb-Ec-VnF"/>
+                            <constraint firstItem="Zdg-I0-Ecm" firstAttribute="leading" secondItem="X3q-HY-TuU" secondAttribute="leading" constant="46.666666666666657" id="djx-Mk-nmc"/>
+                            <constraint firstItem="Zdg-I0-Ecm" firstAttribute="top" secondItem="X3q-HY-TuU" secondAttribute="top" constant="122" id="fH4-xM-dOn"/>
+                            <constraint firstItem="nsm-XT-kQ6" firstAttribute="leading" secondItem="E2E-bZ-rYH" secondAttribute="leading" id="ff4-w0-LGP"/>
+                            <constraint firstItem="E2E-bZ-rYH" firstAttribute="leading" secondItem="U6r-TZ-azX" secondAttribute="leading" id="h3l-E3-dy2"/>
+                            <constraint firstItem="nsm-XT-kQ6" firstAttribute="centerX" secondItem="E2E-bZ-rYH" secondAttribute="centerX" id="hT2-FC-UvE"/>
+                            <constraint firstItem="0am-Js-gOr" firstAttribute="top" secondItem="QMF-a7-3n8" secondAttribute="bottom" constant="8" symbolic="YES" id="hsO-XY-amf"/>
+                            <constraint firstItem="nsm-XT-kQ6" firstAttribute="top" secondItem="Zdg-I0-Ecm" secondAttribute="bottom" constant="8" symbolic="YES" id="mAn-4h-Ono"/>
+                            <constraint firstItem="E2E-bZ-rYH" firstAttribute="top" secondItem="nsm-XT-kQ6" secondAttribute="bottom" constant="36" id="mNd-VB-pea"/>
+                            <constraint firstItem="U6r-TZ-azX" firstAttribute="centerX" secondItem="L0T-0V-B3i" secondAttribute="centerX" id="qv6-8C-eba"/>
+                            <constraint firstItem="E2E-bZ-rYH" firstAttribute="centerX" secondItem="U6r-TZ-azX" secondAttribute="centerX" id="tzi-g4-3Qg"/>
+                            <constraint firstItem="Z2o-9f-ARi" firstAttribute="leading" secondItem="QMF-a7-3n8" secondAttribute="leading" id="wCy-F6-oGT"/>
+                            <constraint firstItem="QMF-a7-3n8" firstAttribute="centerX" secondItem="0am-Js-gOr" secondAttribute="centerX" id="yzP-tD-rhK"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="EE4-IP-Zbd">

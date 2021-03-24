@@ -41,7 +41,14 @@ class CreationViewController: UIViewController {
             let okAction = UIAlertAction(title: "OK", style: .default)
             alert.addAction(okAction)
         } else {
-            flashcardsController.updateFlashcard(question: questionText!, answer: answerText!, extraOne: extraTextOne, extraTwo: extraTextTwo)
+            //check if the flashcard exists
+            var isExisting = false
+            if initialQuestion != nil {
+                isExisting = true
+            }
+            
+            //pass edited values to flashcard
+            flashcardsController.updateFlashcard(question: questionText!, answer: answerText!, extraOne: extraTextOne, extraTwo: extraTextTwo, isExisting: isExisting)
             dismiss(animated: true)
         }
         
@@ -55,6 +62,7 @@ class CreationViewController: UIViewController {
     var initialAnswer: String?
     var initialExtraTextOne: String?
     var initialExtraTextTwo: String?
+//    var isExistingBool : Bool
     /*
     // MARK: - Navigation
 
