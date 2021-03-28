@@ -13,7 +13,7 @@
 `TODO://` 
 
 ## Required
-- [x] User should see the app icon 
+- [x] User should see the app icon.
 - [x] User should see a splash screen
 - [x] User should see an flip animation when revealing the answer
 - [x] User should see a slide animation when going to the next flashcard
